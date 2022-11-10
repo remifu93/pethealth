@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import PetList
+from .views import PetListCreateAPIView, PetRetrieveUpdateDestroyAPIView
 
 urlpatterns = [
-    path('', PetList.as_view(), name='pet-list'),
+    path('', PetListCreateAPIView.as_view(), name='pet-list'),
+    path('<pk>/', PetRetrieveUpdateDestroyAPIView.as_view(), name='pet-retrieve-update-destroy'),
 ]
