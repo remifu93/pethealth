@@ -15,9 +15,6 @@ import os
 import environ
 from datetime import timedelta
 
-
-django_heroku.settings(locals())
-
 # Initialize environment
 env = environ.Env()
 
@@ -160,3 +157,5 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=15),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
 }
+
+django_heroku.settings(locals())
