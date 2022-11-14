@@ -23,3 +23,4 @@ class TokenObtainSerializer(TokenObtainPairSerializer):
         data = super().validate(attrs)
         data['user'] = self.user.email
         return data
+
