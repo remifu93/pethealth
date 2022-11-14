@@ -1,15 +1,16 @@
 from django.db import models
+from base.models import TimeStampedModel
 from pet.models import Pet
 
 
-class Vaccine(models.Model):
+class Vaccine(TimeStampedModel):
     name = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name
 
 
-class Vaccination(models.Model):
+class Vaccination(TimeStampedModel):
     pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
     vaccine = models.ForeignKey(Vaccine, on_delete=models.CASCADE)
 
