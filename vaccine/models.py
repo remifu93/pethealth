@@ -13,6 +13,7 @@ class Vaccine(TimeStampedModel):
 class Vaccination(TimeStampedModel):
     pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
     vaccine = models.ForeignKey(Vaccine, on_delete=models.CASCADE)
+    date_placed = models.DateField()
 
     def __str__(self):
         return self.pet.name
