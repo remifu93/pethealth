@@ -9,7 +9,7 @@ class PetListCreateAPIView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated, ]
 
     def get_queryset(self):
-        return Pet.objects.filter(user=self.request.user)
+        return Pet.objects.filter(user=self.request.user, active=True)
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
@@ -20,4 +20,8 @@ class PetRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated, ]
 
     def get_queryset(self):
-        return Pet.objects.filter(user=self.request.user)
+        return Pet.objects.filter(user=self.request.user, active=True)
+
+    def perform_destroy(self, instance):
+        instance.active = False
+        instance.save()
