@@ -10,8 +10,13 @@ class VaccineSerializer(serializers.ModelSerializer):
 
 
 class VaccinationSerializer(serializers.ModelSerializer):
-    vaccine = VaccineSerializer()
+    vaccine = VaccineSerializer(read_only=True)
 
     class Meta:
         model = Vaccination
         fields = ['id', 'vaccine', 'date_placed', 'created', 'modified', ]
+
+
+class VaccinationCreateSerializer(serializers.Serializer):
+    vaccine = serializers.IntegerField()
+    date_placed = serializers.DateField()
