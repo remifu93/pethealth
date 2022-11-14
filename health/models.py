@@ -1,6 +1,5 @@
 from django.db import models
 from pet.models import Pet
-from vaccine.models import Vaccine
 
 
 class Health(models.Model):
