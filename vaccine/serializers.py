@@ -14,4 +14,4 @@ class VaccinationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Vaccination
-        fields = ['id', 'vaccine', 'created', ]
+        fields = ['id', 'vaccine', 'date_placed', 'created', 'modified', ]
