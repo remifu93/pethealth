@@ -11,6 +11,9 @@ class VaccinationCreateAPIView(generics.CreateAPIView):
     serializer_class = VaccinationCreateSerializer
     permission_classes = [IsAuthenticated, ]
 
+    def get_queryset(self):
+        return Vaccination.objects.all()
+
     def create(self, request, *args, **kwargs):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
