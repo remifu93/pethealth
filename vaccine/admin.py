@@ -1,12 +1,8 @@
 from django.contrib import admin
-from .models import Vaccine, Vaccination
+from .models import Vaccine
 
 
 @admin.register(Vaccine)
 class VaccineAdmin(admin.ModelAdmin):
     pass
 
-
-@admin.register(Vaccination)
-class VaccinationAdmin(admin.ModelAdmin):
-    pass
