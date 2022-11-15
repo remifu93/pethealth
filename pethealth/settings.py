@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'pet',
     'vaccine',
     'vaccination',
+    'specie',
+    'race',
 ]
 
 MIDDLEWARE = [
