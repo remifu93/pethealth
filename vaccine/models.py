@@ -1,6 +1,5 @@
 from django.db import models
 from base.models import TimeStampedModel
-from pet.models import Pet
 
 
 class Vaccine(TimeStampedModel):
@@ -9,13 +8,3 @@ class Vaccine(TimeStampedModel):
 
     def __str__(self):
         return self.name
-
-
-class Vaccination(TimeStampedModel):
-    pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
-    vaccine = models.ForeignKey(Vaccine, on_delete=models.CASCADE)
-    date_placed = models.DateField()
-    active = models.BooleanField(default=True)
-
-    def __str__(self):
-        return self.pet.name

@@ -12,6 +12,5 @@ class Pet(TimeStampedModel):
     # specie
     # type(breed)
 
-
     def __str__(self):
         return self.name

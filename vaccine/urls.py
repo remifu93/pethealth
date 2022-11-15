@@ -1,6 +1,6 @@
-from django.urls import path
-from .views import VaccinationCreateAPIView
+from rest_framework.routers import DefaultRouter
+from .views import VaccineViewSet
 
-urlpatterns = [
-    path('pet/<pk>/', VaccinationCreateAPIView.as_view(), name='vaccination-create'),
-]
+router = DefaultRouter()
+router.register('', VaccineViewSet, basename='vaccine')
+urlpatterns = router.urls
