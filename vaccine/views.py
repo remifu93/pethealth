@@ -8,7 +8,7 @@ from .models import Vaccination, Vaccine
 from .serializers import VaccinationCreateSerializer
 
 
-class VaccinationCreateAPIView(generics.ListCreateAPIView):
+class VaccinationCreateAPIView(generics.CreateAPIView):
     serializer_class = VaccinationCreateSerializer
     permission_classes = [IsAuthenticated, ]
 
