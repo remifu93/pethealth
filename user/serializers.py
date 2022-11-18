@@ -6,16 +6,20 @@ from .models import User
 
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
-    password2 = serializers.CharField(write_only=True, required=True)
 
     class Meta:
         model = User
-        fields = ['email', 'password', 'password2', ]
-
-    def validate(self, attrs):
-        if attrs['password'] != attrs['password2']:
-            raise serializers.ValidationError({"password": "Password fields didn't match."})
-        return attrs
+        fields = [
+            'email',
+            'password',
+            'first_name',
+            'last_name',
+            'gender',
+            'birth_date',
+            'phone',
+            'id_number',
+            'date_joined',
+        ]
 
 
 class TokenObtainSerializer(TokenObtainPairSerializer):
