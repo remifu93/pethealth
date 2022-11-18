@@ -23,7 +23,7 @@ class User(AbstractUser):
 
     birth_date = models.DateField()
     phone = models.IntegerField()
-    id_number = models.IntegerField()
+    id_number = models.IntegerField(unique=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
