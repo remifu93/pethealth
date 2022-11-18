@@ -13,7 +13,13 @@ class UserCreateAPIView(CreateAPIView):
         serializer = UserSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = User.objects.create(
-            email=request.data['email']
+            email=request.data['email'],
+            first_name=request.data['first_name'],
+            last_name=request.data['last_name'],
+            gender=request.data['gender'],
+            birth_date=request.data['birth_date'],
+            phone=request.data['phone'],
+            id_number=request.data['id_number']
         )
         user.set_password(request.data['password'])
         user.save()
