@@ -6,7 +6,7 @@ from .models import User
 
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
-    date_joined = serializers.DateField(read_only=True)
+    date_joined = serializers.DateTimeField(read_only=True)
 
     class Meta:
         model = User
