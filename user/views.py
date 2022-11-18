@@ -23,7 +23,7 @@ class UserCreateAPIView(CreateAPIView):
         )
         user.set_password(request.data['password'])
         user.save()
-        return Response(UserSerializer(user).data)
+        return Response(serializer.data)
 
 
 class TokenObtainView(TokenObtainPairView):

@@ -21,8 +21,8 @@ class User(AbstractUser):
     )
 
     birth_date = models.DateField()
-    phone = models.IntegerField()
-    id_number = models.IntegerField(unique=True)
+    phone = models.CharField(max_length=22)
+    id_number = models.CharField(max_length=10, unique=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
