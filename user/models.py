@@ -6,28 +6,33 @@ from .managers import UserManager
 class User(AbstractUser):
     email = models.EmailField('Email', unique=True)
     username = None
-    first_name = models.CharField(max_length=90)
-    last_name = models.CharField(max_length=90)
+    first_name = models.CharField('Nombre', max_length=90)
+    last_name = models.CharField('Apellido', max_length=90)
 
     class Gender(models.TextChoices):
-        MALE = 'MA', 'Male'
-        FEMALE = 'FE', 'Female'
-        UNDEFINED = 'UN', 'Undefined'
-        OTHER = 'OT', 'Other'
+        MALE = 'MA', 'Masculino'
+        FEMALE = 'FE', 'Femenino'
+        UNDEFINED = 'UN', 'Indefinido'
+        OTHER = 'OT', 'Otro'
 
     gender = models.CharField(
+        'Genero',
         max_length=2,
         choices=Gender.choices,
     )
 
-    birth_date = models.DateField()
-    phone = models.IntegerField()
-    id_number = models.IntegerField(unique=True)
+    birth_date = models.DateField('Fecha de nacimiento')
+    phone = models.IntegerField('Teléfono')
+    id_number = models.IntegerField('Documento', unique=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name', 'last_name', 'gender', 'birth_date', 'phone', 'id_number', ]
 
     objects = UserManager()
+
+    class Meta:
+        verbose_name = "Usuario"
+        verbose_name_plural = "Usuarios"
 
     def __str__(self):
         return self.email
