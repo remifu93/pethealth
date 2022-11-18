@@ -21,11 +21,11 @@ class User(AbstractUser):
     )
 
     birth_date = models.DateField()
-    phone = models.CharField(max_length=22)
-    id_number = models.CharField(max_length=10, unique=True)
+    phone = models.IntegerField()
+    id_number = models.IntegerField(unique=True)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'gender', 'birth_date', 'phone', 'id_number', ]
 
     objects = UserManager()
 

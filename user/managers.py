@@ -2,8 +2,9 @@ from django.contrib.auth.base_user import BaseUserManager
 
 
 class UserManager(BaseUserManager):
-    def _create_user(self, email, password, first_name, last_name, gender, birth_date, phone,
-                     id_number, is_staff, is_superuser, is_active, **extra_fields):
+    def _create_user(self, email, first_name, last_name, gender, birth_date, phone,
+                     id_number, password, is_staff, is_superuser, is_active, **extra_fields):
+
         user = self.model(
             email=email,
             first_name=first_name,
@@ -17,6 +18,7 @@ class UserManager(BaseUserManager):
             is_active=is_active,
             **extra_fields
         )
+
         user.set_password(password)
         user.save(using=self.db)
         return user
