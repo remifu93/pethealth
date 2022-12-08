@@ -7,4 +7,9 @@ class RaceViewSet(BasicPermissionViewSet):
     serializer_class = RaceSerializer
 
     def get_queryset(self):
-        return Race.objects.all()
+        queryset = Race.objects.all()
+        specie = self.request.query_params.get('specie')
+        if specie is not None:
+            queryset = queryset.filter(specie_id=specie)
+        return queryset
+
