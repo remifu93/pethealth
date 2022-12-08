@@ -17,10 +17,12 @@ class Pet(TimeStampedModel):
     active = models.BooleanField('Activo', default=True)
     race = models.ForeignKey(Race, verbose_name='Raza', on_delete=models.CASCADE)
     sex = models.CharField(
+        'Sexo',
         max_length=2,
         choices=SexChoices.choices,
     )
     weight = models.SmallIntegerField(
+        'Peso',
         validators=[MaxValueValidator(100), MinValueValidator(1)]
     )
 

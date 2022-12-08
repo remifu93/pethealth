@@ -18,7 +18,19 @@ class PetDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Pet
-        fields = ['id', 'name', 'user', 'birth_date', 'vaccination', 'created', 'modified', 'active', ]
+        fields = [
+            'id',
+            'name',
+            'user',
+            'birth_date',
+            'race',
+            'sex',
+            'weight',
+            'vaccination',
+            'created',
+            'modified',
+            'active',
+        ]
 
     def get_vaccination(self, obj):
         queryset = obj.vaccination_set.all()
