@@ -25,6 +25,7 @@ class Pet(TimeStampedModel):
         'Peso',
         validators=[MaxValueValidator(100), MinValueValidator(1)]
     )
+    castrated = models.BooleanField()
 
     class Meta:
         verbose_name = "Mascota"

@@ -25,6 +25,8 @@ class User(AbstractUser):
     phone = models.IntegerField('Teléfono')
     id_number = models.IntegerField('Documento', unique=True)
 
+    is_vet_user = models.BooleanField('Es Veterinario', default=False)
+
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name', 'last_name', 'gender', 'birth_date', 'phone', 'id_number', ]
 
